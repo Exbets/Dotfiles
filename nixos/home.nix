@@ -1,11 +1,5 @@
 { config, pkgs, inputs, ... }:
 
-# Import toml file
-let
-  env = builtins.fromTOML (builtins.readFile ./environment.toml);
-  email = env.Email;
-in
-
 {
   home.username = "dom";
   home.homeDirectory = "/home/dom";
@@ -126,7 +120,7 @@ in
   programs.git = {
     enable = true;
     userName = "exbets";
-    userEmail = email;
+    userEmail = "domgorkoff@gmail.com";
   };
 
   # starship - an customizable prompt for any shell
