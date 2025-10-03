@@ -1,0 +1,5 @@
+[global]
+# ... other global settings
+#follow = keyboard 
+# The 'monitor' setting will be ignored if 'follow' is set to keyboard or mouse.
+monitor = 1
