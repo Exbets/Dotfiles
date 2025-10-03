@@ -5,4 +5,4 @@ AMD gpu stuff in configuration.nix is probably incorrect, it was for my other pc
 
 ---
 
-![](Average.png)
+![](R5.png)
