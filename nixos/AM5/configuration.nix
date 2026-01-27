@@ -106,6 +106,7 @@
   services.gvfs.enable = true;
   services.flatpak.enable = true;
 
+  # Virt
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;

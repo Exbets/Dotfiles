@@ -62,6 +62,13 @@
 
       brave # Web Browser
       pavucontrol # Volume Control
+      mpv # Video Player
+      imv # Image Viewer
+      qdiskinfo # Basically Crystal Disk
+      btrfs-assistant # GUI for btrfs
+      postman # API Client
+      distroshelf # GUI for Distrobox Containers
+      gdu # Disk Usage Analyzer
     ];
 
     utils = [
@@ -74,17 +81,38 @@
       oh-my-posh # Prompt Engine for Shell
       pywal # Generates Colour Themes
       cmus # CLI music player
-      mpv
+      distrobox # Wrapper around podman or docker to create and start containers
+    ];
+
+    nix_tools = [
+      # Nix related
+      nix-output-monitor
     ];
 
     productivity = [
       # Productivity
+      glow # markdown previewer in terminal
+      
       btop  # replacement of htop/nmon
+      iotop # io monitoring
+      iftop # network monitoring
+
+      # system call monitoring
+      strace # system call monitoring
+      lsof # list open files
+
+      # system tools
+      sysstat
+      lm_sensors # for `sensors` command
+      ethtool
+      pciutils # lspci
+      usbutils # lsusb
     ];
   in
     flake_apps
     ++ apps
     ++ utils
+    ++ nix_tools
     ++ productivity;
 
   # Programs
