@@ -69,6 +69,8 @@
       postman # API Client
       distroshelf # GUI for Distrobox Containers
       gdu # Disk Usage Analyzer
+      spotify
+      protonvpn-gui
     ];
 
     utils = [
