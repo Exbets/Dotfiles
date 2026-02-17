@@ -84,6 +84,9 @@
       pywal # Generates Colour Themes
       cmus # CLI music player
       distrobox # Wrapper around podman or docker to create and start containers
+
+      unzip
+      unar
     ];
 
     nix_tools = [
