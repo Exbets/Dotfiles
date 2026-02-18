@@ -114,8 +114,7 @@
 
   # Udev
   services.udev.extraRules = ''
-    # WLmouse Mini Receiver (ID 36a7:a885) - Grant read/write access for Web Panel
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36a7", ATTRS{idProduct}=="a887", MODE="0666", TAG+="uaccess"
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36a7", MODE="0666", TAG+="uaccess"
   '';
 
   # This value determines the NixOS release from which the default
