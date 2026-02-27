@@ -69,8 +69,9 @@
       postman # API Client
       distroshelf # GUI for Distrobox Containers
       gdu # Disk Usage Analyzer
-      spotify
-      protonvpn-gui
+      spotify # Spotify Music
+      protonvpn-gui # VPN
+      lutris # Game Launcher
     ];
 
     utils = [
@@ -84,7 +85,6 @@
       pywal # Generates Colour Themes
       cmus # CLI music player
       distrobox # Wrapper around podman or docker to create and start containers
-      lutris
       unzip
       unar
     ];
