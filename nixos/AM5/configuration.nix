@@ -114,11 +114,7 @@
 
   # Udev
   services.udev.extraRules = ''
-    # WLMouse
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36a7", MODE="0666", TAG+="uaccess"
-
-    # Keychron Q1
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0107", TAG+="uaccess"
   '';
 
   # This value determines the NixOS release from which the default
