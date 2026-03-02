@@ -72,6 +72,7 @@
       spotify # Spotify Music
       protonvpn-gui # VPN
       lutris # Game Launcher
+      obs-studio
     ];
 
     utils = [
