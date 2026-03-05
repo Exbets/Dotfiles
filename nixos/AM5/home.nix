@@ -73,7 +73,6 @@
       protonvpn-gui # VPN
       lutris # Game Launcher
       obs-studio # Screen Recording
-      calibre # E Book Manager
     ];
 
     utils = [
