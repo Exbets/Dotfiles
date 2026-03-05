@@ -10,11 +10,20 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Hardware
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
+
+  # Filesystems
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024;
+  }];
 
   # Networking
   networking.hostName = "AM5"; # Define your hostname.
@@ -38,9 +47,11 @@
   users.users.dom = {
     isNormalUser = true;
     description = "Dom";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "render" ];
     packages = with pkgs; [];
   };
+
+  users.groups.libvirtd.members = ["dom"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -93,6 +104,8 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  programs.virt-manager.enable = true;
+
   # Services
   security.rtkit.enable = true;
 
@@ -105,6 +118,25 @@
 
   services.gvfs.enable = true;
   services.flatpak.enable = true;
+
+  services.snapper = {
+    configs."home" = {
+      SUBVOLUME = "/home";
+      FSTYPE = "btrfs";
+      
+      # Optional: Allow the user 'dom' to use snapper without sudo/root
+      ALLOW_USERS = [ "dom" ]; 
+      
+      # Optional: Enable automatic hourly snapshots and cleanup
+      TIMELINE_CREATE = true;
+      TIMELINE_CLEANUP = true;
+      
+      # Optional: Adjust the number of snapshots to keep
+      TIMELINE_LIMIT_HOURLY = 5;
+      TIMELINE_LIMIT_DAILY = 5;
+      TIMELINE_LIMIT_MONTHLY = 0;
+    };
+  };
 
   # Virt
   virtualisation.podman = {

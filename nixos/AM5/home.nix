@@ -70,9 +70,9 @@
       distroshelf # GUI for Distrobox Containers
       gdu # Disk Usage Analyzer
       spotify # Spotify Music
-      protonvpn-gui # VPN
       lutris # Game Launcher
       obs-studio # Screen Recording
+      qbittorrent # Yes
     ];
 
     utils = [
@@ -86,6 +86,7 @@
       pywal # Generates Colour Themes
       cmus # CLI music player
       distrobox # Wrapper around podman or docker to create and start containers
+      kepubify # EPUB to KEPUB converter
     ];
 
     nix_tools = [
