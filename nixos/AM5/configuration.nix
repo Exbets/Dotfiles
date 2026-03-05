@@ -144,6 +144,9 @@
     dockerCompat = true;
   };
 
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Udev
   services.udev.extraRules = ''
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="36a7", MODE="0666", TAG+="uaccess"
