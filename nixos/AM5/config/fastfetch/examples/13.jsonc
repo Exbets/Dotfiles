@@ -8,7 +8,9 @@
         },
         "color": {
             "1": "red",
-            "2": "cyan"
+            "2": "cyan",
+            "3": "red",
+            "5": "red"
         }
     },
     "display": {
