@@ -73,8 +73,7 @@
       lutris # Game Launcher
       obs-studio # Screen Recording
       qbittorrent # Yes
-      shotcut
-      pokemmo-installer
+      shotcut # Video Editor
     ];
 
     utils = [
