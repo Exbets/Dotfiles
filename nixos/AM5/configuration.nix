@@ -17,6 +17,11 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd # OpenCL
+      libva # VA-API
+    ];
   };
 
   # Filesystems
@@ -82,6 +87,8 @@
     # Important
     git
     vscode-fhs
+    libva-utils
+    ffmpeg
 
     # XDG
     xdg-desktop-portal
