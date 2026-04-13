@@ -74,6 +74,7 @@
       obs-studio # Screen Recording
       qbittorrent # Yes
       shotcut # Video Editor
+      proton-vpn # VPN Client
     ];
 
     utils = [
