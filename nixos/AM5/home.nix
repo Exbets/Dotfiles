@@ -75,6 +75,7 @@
       qbittorrent # Yes
       shotcut # Video Editor
       proton-vpn # VPN Client
+      sunshine # Game steam host for Moonlight
     ];
 
     utils = [
