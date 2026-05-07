@@ -70,12 +70,12 @@
       distroshelf # GUI for Distrobox Containers
       gdu # Disk Usage Analyzer
       spotify # Spotify Music
-      lutris # Game Launcher
+      #lutris # Game Launcher
       obs-studio # Screen Recording
       qbittorrent # Yes
       shotcut # Video Editor
-      proton-vpn # VPN Client
       sunshine # Game steam host for Moonlight
+      starsector # Space Game
     ];
 
     utils = [
