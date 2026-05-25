@@ -11,9 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Viu
-    viu.url = "github:Benexl/viu";
-
     # HyprPanel
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";

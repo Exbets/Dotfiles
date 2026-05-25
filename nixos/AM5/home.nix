@@ -50,7 +50,6 @@
   home.packages = with pkgs; let
     flake_apps = [
       # Flake Apps
-      inputs.viu.packages.${pkgs.stdenv.hostPlatform.system}.default # Viu
     ];
 
     apps = [
@@ -75,7 +74,7 @@
       qbittorrent # Yes
       shotcut # Video Editor
       sunshine # Game steam host for Moonlight
-      starsector # Space Game
+      ani-cli # Watch Videos
     ];
 
     utils = [
