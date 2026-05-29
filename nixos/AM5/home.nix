@@ -48,10 +48,6 @@
 
   # Packages
   home.packages = with pkgs; let
-    flake_apps = [
-      # Flake Apps
-    ];
-
     apps = [
       # Apps
       gnome-text-editor # Gnome Text Editor
@@ -116,8 +112,7 @@
       usbutils # lsusb
     ];
   in
-    flake_apps
-    ++ apps
+    apps
     ++ utils
     ++ nix_tools
     ++ productivity;
