@@ -70,7 +70,7 @@
       qbittorrent # Yes
       shotcut # Video Editor
       sunshine # Game steam host for Moonlight
-      ani-cli # Watch Videos
+      prismlauncher
     ];
 
     utils = [
