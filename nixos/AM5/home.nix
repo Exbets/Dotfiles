@@ -69,8 +69,7 @@
       obs-studio # Screen Recording
       qbittorrent # Yes
       shotcut # Video Editor
-      sunshine # Game steam host for Moonlight
-      prismlauncher
+      prismlauncher # Launcher for Block Game
     ];
 
     utils = [
@@ -85,6 +84,7 @@
       cmus # CLI music player
       distrobox # Wrapper around podman or docker to create and start containers
       kepubify # EPUB to KEPUB converter
+      wayle # Top Bar
     ];
 
     nix_tools = [
@@ -118,12 +118,6 @@
     ++ productivity;
 
   # Programs
-
-  # HyprPanel
-  programs.hyprpanel = {
-    enable = true;
-    package = inputs.hyprpanel.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  };
 
   # Refer to flake for real version.
   home.stateVersion = "25.11";
