@@ -70,6 +70,7 @@
       qbittorrent # Yes
       shotcut # Video Editor
       prismlauncher # Launcher for Block Game
+      lunar-client
     ];
 
     utils = [

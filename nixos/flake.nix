@@ -10,14 +10,22 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Cachy Kernel
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nix-cachyos-kernel, ... }: {
     nixosConfigurations = {
       AM5 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./AM5/configuration.nix
+
+           # Apply the Cachy overlay
+          {
+            nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+          }
 
           home-manager.nixosModules.home-manager
           {

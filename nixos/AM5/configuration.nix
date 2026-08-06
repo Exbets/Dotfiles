@@ -11,7 +11,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+
+  nix.settings = {
+    substituters = [ "https://attic.xuyh0120.win/lantian" ];
+    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+  };
 
   # Hardware
   hardware.graphics = {
@@ -92,11 +97,11 @@
 
     # XDG
     xdg-desktop-portal
-    xdg-desktop-portal-hyprland
   ];
 
   # Programs
   programs.hyprland.enable = true;
+  programs.hyprland.withUWSM  = true;
 
   programs.gamescope = {
     enable = true;
