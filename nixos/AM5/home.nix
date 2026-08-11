@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   # Config
@@ -93,7 +93,7 @@
       nix-output-monitor
     ];
 
-    productivity = [
+    system_tools = [
       # Productivity
       glow # markdown previewer in terminal
       
@@ -111,12 +111,13 @@
       ethtool
       pciutils # lspci
       usbutils # lsusb
+      smartmontools
     ];
   in
     apps
     ++ utils
     ++ nix_tools
-    ++ productivity;
+    ++ system_tools;
 
   # Programs
 

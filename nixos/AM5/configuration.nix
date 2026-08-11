@@ -14,6 +14,7 @@
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
   nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
     substituters = [ "https://attic.xuyh0120.win/lantian" ];
     trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
   };
@@ -58,16 +59,12 @@
     isNormalUser = true;
     description = "Dom";
     extraGroups = [ "networkmanager" "wheel" "video" "render" ];
-    packages = with pkgs; [];
   };
 
   users.groups.libvirtd.members = ["dom"];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Enabled Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -100,8 +97,10 @@
   ];
 
   # Programs
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM  = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   programs.gamescope = {
     enable = true;
@@ -112,14 +111,17 @@
     enable = true;
     gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   programs.virt-manager.enable = true;
 
   # Services
   security.rtkit.enable = true;
+
+  security.polkit = {
+    enable = true;
+    enablePkexecWrapper = true;
+  };
 
   services.pipewire = {
     enable = true;
