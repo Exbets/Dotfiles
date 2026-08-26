@@ -69,8 +69,8 @@
       obs-studio # Screen Recording
       qbittorrent # Yes
       shotcut # Video Editor
-      prismlauncher # Launcher for Block Game
-      lunar-client
+      lunar-client # Block Game
+      proton-vpn
     ];
 
     utils = [
