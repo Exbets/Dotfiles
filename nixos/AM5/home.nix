@@ -70,7 +70,8 @@
       qbittorrent # Yes
       shotcut # Video Editor
       lunar-client # Block Game
-      proton-vpn
+      proton-vpn # Number Blocker Thing
+      filen-desktop # Cloud Storage
     ];
 
     utils = [

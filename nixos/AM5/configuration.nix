@@ -113,6 +113,11 @@
 
   programs.virt-manager.enable = true;
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
   # Services
   security.rtkit.enable = true;
 
