@@ -1,0 +1,163 @@
+{ config, pkgs, ... }:
+
+{
+  imports =
+    [
+      ./hardware-configuration.nix
+    ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # Hardware
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  # Filesystems
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024;
+  }];
+
+  # Networking
+  networking.hostName = "Average"; # Define your hostname.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "America/Vancouver";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_CA.UTF-8";
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.dom = {
+    isNormalUser = true;
+    description = "Dom";
+    extraGroups = [ "networkmanager" "wheel" "video" "render" ];
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.droid-sans-mono
+  ];
+
+  # Packages
+  environment.systemPackages = with pkgs; [
+    # Hyprland
+    kitty
+    hyprpolkitagent
+    rofi
+    wl-clipboard
+    cliphist
+    hyprshot
+    playerctl
+    hyprpaper
+
+    # Important
+    git
+    vscode-fhs
+    libva-utils
+    ffmpeg
+
+    # XDG
+    xdg-desktop-portal
+  ];
+
+  # Programs
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
+  # Services
+  security.rtkit.enable = true;
+
+  security.polkit = {
+    enable = true;
+    enablePkexecWrapper = true;
+  };
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.gvfs.enable = true;
+  services.flatpak.enable = true;
+
+  services.snapper = {
+    configs."home" = {
+      SUBVOLUME = "/home";
+      FSTYPE = "btrfs";
+      
+      # Optional: Allow the user 'dom' to use snapper without sudo/root
+      ALLOW_USERS = [ "dom" ]; 
+      
+      # Optional: Enable automatic hourly snapshots and cleanup
+      TIMELINE_CREATE = true;
+      TIMELINE_CLEANUP = true;
+      
+      # Optional: Adjust the number of snapshots to keep
+      TIMELINE_LIMIT_HOURLY = 5;
+      TIMELINE_LIMIT_DAILY = 5;
+      TIMELINE_LIMIT_MONTHLY = 0;
+    };
+  };
+
+  # Virt
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
+
+}
