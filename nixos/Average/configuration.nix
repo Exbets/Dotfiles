@@ -23,11 +23,11 @@
     enable32Bit = true;
   };
 
-  # Filesystems
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  fileSystems."/games" = {
+    device = "/dev/disk/by-uuid/2c2c9327-40f1-4530-8faf-e87d5ada56af";
+    fsType = "btrfs";
+    options = [ "subvol=games" "compress=zstd" "noatime" ];
+  };
 
   # Networking
   networking.hostName = "Average"; # Define your hostname.

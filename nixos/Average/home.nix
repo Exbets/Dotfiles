@@ -58,16 +58,14 @@
       brave # Web Browser
       pavucontrol # Volume Control
       mpv # Video Player
-      imv # Image Viewer
       qdiskinfo # Basically Crystal Disk
       btrfs-assistant # GUI for btrfs
       postman # API Client
       distroshelf # GUI for Distrobox Containers
-      gdu # Disk Usage Analyzer
       spotify # Spotify Music
       obs-studio # Screen Recording
+      qbittorrent # Yes
       shotcut # Video Editor
-      lunar-client # Block Game
       proton-vpn # Number Blocker Thing
       filen-desktop # Cloud Storage
     ];
@@ -85,6 +83,9 @@
       distrobox # Wrapper around podman or docker to create and start containers
       kepubify # EPUB to KEPUB converter
       wayle # Top Bar
+      imv # Image Viewer
+      gdu # Disk Usage Analyzer
+      superfile # TUI File Manager
     ];
 
     nix_tools = [
