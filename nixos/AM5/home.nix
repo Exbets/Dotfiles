@@ -69,7 +69,7 @@
       obs-studio # Screen Recording
       qbittorrent # Yes
       shotcut # Video Editor
-      lunar-client # Block Game
+      prismlauncher # Block Game
       proton-vpn # Number Blocker Thing
       filen-desktop # Cloud Storage
     ];
